@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Botanical</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Tenor+Sans&family=Space+Grotesk:wght@300;400;500;600;700&family=Courier+Prime&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2C2C2B", 
+                        "accent": "#9A463D", 
+                        "accent-dark": "#7d3831",
+                        "raw-silk": "#F2F0EB",
+                        "surface": "#EAE7DF",
+                        "muted": "#8C8C8A"
+                    },
+                    fontFamily: {
+                        "display": ["Cinzel Decorative", "serif"],
+                        "body": ["Tenor Sans", "sans-serif"],
+                        "grotesk": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Courier Prime", "monospace"],
+                        "sans": ["Tenor Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px" // Enforcing brutalist aesthetic even on 'rounded-full' utility override if needed, but we'll specific 0px usually
+                    },
+                    backgroundImage: {
+                        'dotted-grid': 'radial-gradient(circle, #8C8C8A 1px, transparent 1px)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F2F0EB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2C2C2B;
+        }
+        
+        .writing-vertical-rl {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .cursor-view {
+            cursor: url('data:image/svg+xml;utf8,<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="39" stroke="%232C2C2B" stroke-width="1"/><text x="40" y="44" text-anchor="middle" fill="%232C2C2B" font-family="sans-serif" font-size="12">VIEW</text></svg>') 40 40, auto;
+        }
+
+        /* 3D Transform Utilities */
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        /* Wheel animation */
+        .wheel-segment {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+            cursor: pointer;
+        }
+        .wheel-segment:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            filter: brightness(1.1);
+        }
+        .wheel-segment.active {
+            transform: scale(1.1);
+            z-index: 20;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-raw-silk text-primary font-body antialiased selection:bg-accent selection:text-white overflow-hidden">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
